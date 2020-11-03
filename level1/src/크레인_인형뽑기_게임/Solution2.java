@@ -1,0 +1,52 @@
+package 크레인_인형뽑기_게임;
+
+import java.io.IOException;
+import java.util.Stack;
+
+public class Solution2 {
+    /*
+        [[0,0,0,0,0],
+         [0,0,1,0,3],
+         [0,2,5,0,1],
+         [4,2,4,4,2],
+         [3,5,1,3,1]]
+
+         [1,5,3,5,1,2,1,4]
+    */
+    public static int solution(int[][] board, int[] moves) {
+        int answer = 0;
+        Stack<Integer> basket = new Stack<>();
+
+        for (int i = 0; i < moves.length; i++) {
+            int tmp = 0;
+            int location = moves[i] - 1;
+
+            for (int j = 0; j < board.length; j++) {
+                if (board[j][location] != 0) {
+                    tmp = board[j][location];
+                    board[j][location] = 0;
+                    break;
+                }
+            }
+
+            if (tmp != 0) {
+                if (basket.size() >= 1 && basket.peek() == tmp) {
+                    basket.pop();
+                    answer += 2;
+                } else
+                    basket.push(tmp);
+            }
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) throws IOException {
+
+        int[][] board = {{0, 0, 0, 0, 0}, {0, 0, 1, 0, 3}, {0, 2, 5, 0, 1}, {4, 2, 4, 4, 2}, {3, 5, 1, 3, 1}};
+        int[] moves = {1, 5, 3, 5, 1, 2, 1, 4};
+
+        System.out.println("solution() = " + solution(board, moves));
+
+    }
+}
