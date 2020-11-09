@@ -1,4 +1,4 @@
-package 크레인_인형뽑기_게임;
+package P_크레인_인형뽑기_게임;
 
 import java.io.*;
 import java.util.ArrayList;

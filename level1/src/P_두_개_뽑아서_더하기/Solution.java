@@ -1,4 +1,4 @@
-package 두_개_뽑아서_더하기;
+package P_두_개_뽑아서_더하기;
 
 import java.util.ArrayList;
 import java.util.Collections;
